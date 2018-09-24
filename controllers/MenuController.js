@@ -8,7 +8,8 @@ module.exports = class MenuController {
         message: "Please choose from an option below: ",
         choices: [
           "Add new contact",
-          "Exit"
+          "Exit",
+          "Get date"
         ]
       }
     ];
@@ -21,6 +22,8 @@ module.exports = class MenuController {
          case "Add new contact":
            this.addContact();
            break;
+         case "Log data":
+           this.getDate();
          case "Exit":
            this.exit();
          default:
@@ -41,7 +44,16 @@ module.exports = class MenuController {
      console.log('addContact called');
      this.main();
    }
+   getDate(){
+     this.clear();
+    console.log('getDate called');
+    var current = new Date();
+    var formattedDate = (current.getMonth()+1) + '/' + current.getDate() + '/' + current.getFullYear();
+    var formattedTime = current.getHours() + ':' + current.getMinutes();
+    console.log('Today is ' + formattedDate + ' and the current time is ' + formattedTime);
+    this.main();
 
+   }
    exit(){
      console.log("Thanks for using AddressBloc!");
      process.exit();
