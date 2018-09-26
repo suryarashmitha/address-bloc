@@ -52,7 +52,9 @@ module.exports = class MenuController {
     var formattedTime = current.getHours() + ':' + current.getMinutes();
     console.log('Today is ' + formattedDate + ' and the current time is ' + formattedTime);
     this.main();
-
+   }
+   getContactCount() {
+     return this.contacts.length;
    }
    exit(){
      console.log("Thanks for using AddressBloc!");
